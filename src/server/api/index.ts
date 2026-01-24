@@ -11,6 +11,7 @@ export const app = new Elysia({
   name: 'app',
   prefix: '/api',
 })
+.get('/', () => 'Hello World!')
   .use(userRouter)
   .use(postsRouter)
   .use(commentsRouter)
