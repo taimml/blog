@@ -46,7 +46,7 @@ export default function SignIn() {
     );
   };
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center -mt-70">
       <p className="text-[21px]">Вход</p>
       <div>
         <ShadcnForm {...form}>
