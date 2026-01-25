@@ -31,14 +31,15 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<div className="flex">
-					<Sidebar />
-					<div className="flex-1">
-						<Header />
-						<QueryClientProviderContext>{children}</QueryClientProviderContext>
+				<QueryClientProviderContext>
+					<div className="flex">
+						<Sidebar />
+						<div className="flex-1">
+							<Header />
+							{children}
+						</div>
 					</div>
-				</div>
-
+				</QueryClientProviderContext>
 				<Toaster />
 			</body>
 		</html>

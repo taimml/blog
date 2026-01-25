@@ -7,7 +7,9 @@ import { sidebarSchema } from "@/lib/shared/schemas/sidebar";
 export const sidebarRouter = new Elysia({prefix: '/sidebar'})
 .use(userService)
 .get('/', async () => {
-    return await db.query.sidebarTable.findFirst();
+    const res = await db.query.sidebarTable.findFirst();
+
+    return res ?? null
     // return{
     //     success: true,
     //     data: sidebarData
