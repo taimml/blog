@@ -30,20 +30,21 @@ export const postsRouter = new Elysia({ prefix: '/posts' })
     },
     {
       body: postsSchema,
-      hasRole: 'admin',
+      // hasRole: 'admin',
     },
   )
   .put(
     '/:id',
     async ({ params, body }) => {
       const { id } = params;
-      const { name, content, theme, img } = body;
+      const { name, contentBeforeImg, contentAfterImg, theme, img } = body;
 
       const [updatedPost] = await db
         .update(postsTable)
         .set({
           name,
-          content,
+          contentBeforeImg,
+          contentAfterImg,
           theme,
           img
         })
@@ -59,13 +60,8 @@ export const postsRouter = new Elysia({ prefix: '/posts' })
       params: z.object({
         id: z.string(),
       }),
-      body: z.object({
-        name: z.string().min(1).max(30),
-        content: z.string().min(1),
-        theme: z.string(),
-        img: z.string().optional(),
-      }),
-      hasRole: 'admin',
+      body: postsSchema,
+      // hasRole: 'admin',
     },
   )
   .delete(
@@ -75,6 +71,6 @@ export const postsRouter = new Elysia({ prefix: '/posts' })
     },
     {
       params: z.object({ id: z.string() }),
-      hasRole: 'admin',
+      // hasRole: 'admin',
     },
   );

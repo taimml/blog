@@ -18,8 +18,9 @@ const commonFields = {
 
 export const postsTable = pgTable('posts', {
   ...commonFields,
-  name: varchar('name', { length: 30 }).notNull(),
-  content: text('content').notNull(),
+  name: varchar('name', { length: 120 }).notNull(),
+  contentBeforeImg: text('contentBeforeImg'),
+  contentAfterImg: text('contentAfterImg'),
   theme: text('theme').notNull(),
   img: varchar('img', { length: 50 }),
 });
@@ -47,11 +48,21 @@ export const sidebarTable = pgTable('sidebar', {
   name: varchar('name', { length: 30 }).notNull(),
   desc: varchar('desc', { length: 30 }).notNull(),
   content: text('content').notNull(),
-})
+});
 
-export const socialLinks = pgTable("social_links", {
-    ...commonFields,
-    name: varchar("name", { length: 30 }).notNull(),
-    url: text("url").notNull(),
-    icon: varchar("icon", { length: 50 }),
+export const socialLinks = pgTable('social_links', {
+  ...commonFields,
+  name: varchar('name', { length: 30 }).notNull(),
+  url: text('url').notNull(),
+  icon: varchar('icon', { length: 50 }),
+});
+
+export const worksTable = pgTable('works', {
+  ...commonFields,
+  img: varchar('img', { length: 50 }),
+  name: varchar('name', { length: 30 }).notNull(),
+  content: text('content').notNull(),
+  tag1: varchar('tag1', { length: 30 }),
+  tag2: varchar('tag2', { length: 30 }),
+  tag3: varchar('tag3', { length: 30 }),
 });

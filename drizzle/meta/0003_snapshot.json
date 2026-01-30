@@ -1,6 +1,6 @@
 {
-  "id": "0d6340c8-9e44-4ac1-b488-9eec1b397eef",
-  "prevId": "63bb4277-d91b-49e9-9ef2-cf77a4fd3f8c",
+  "id": "7f8c4a0f-029d-48ce-ae93-1a9207244838",
+  "prevId": "eedb538b-6f86-4e78-bed1-81e5a23ebe06",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -143,7 +143,7 @@
         },
         "name": {
           "name": "name",
-          "type": "varchar(30)",
+          "type": "varchar(120)",
           "primaryKey": false,
           "notNull": true
         },
@@ -151,13 +151,13 @@
           "name": "contentBeforeImg",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "contentAfterImg": {
           "name": "contentAfterImg",
           "type": "text",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "theme": {
           "name": "theme",

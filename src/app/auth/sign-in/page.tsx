@@ -58,12 +58,12 @@ export default function SignIn() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input
+                      <input
                         type="email"
                         {...field}
                         placeholder="Почта"
-                        className="border-b border-[#3F3F3F] bg-mydarkgray pb-1 pl-1 focus:outline-none focus:border-[#107EFF]"
-                      ></Input>
+                        className="border-b border-b-[#3F3F3F] focus:outline-none focus:border-[#107EFF]"
+                      ></input>
                     </FormControl>
                   </FormItem>
                 )}
@@ -74,12 +74,12 @@ export default function SignIn() {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input
+                      <input
                         type="password"
                         {...field}
                         placeholder="Пароль"
-                        className="border-b border-[#3F3F3F] bg-mydarkgray pb-1 pl-1 focus:outline-none focus:border-[#107EFF] "
-                      ></Input>
+                        className="border-b border-b-[#3F3F3F] focus:outline-none focus:border-[#107EFF]"
+                      ></input>
                     </FormControl>
                   </FormItem>
                 )}

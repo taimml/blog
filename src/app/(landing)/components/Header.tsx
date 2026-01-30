@@ -1,7 +1,15 @@
 'use client';
 
 import { Input } from '@/components/ui/input';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
+
+const THEMES = [
+  'создание сайтов',
+  'интернет маркетинг', 
+  'продвижение видео'
+];
 
 export default function Header() {
   const [isArticlesOpen, setIsArticlesOpen] = useState(false);
@@ -9,16 +17,21 @@ export default function Header() {
   return (
     <header className="flex justify-between items-center w-full bg-[#0D0D0D] text-xs shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
       <div className="flex gap-5 pl-6 relative">
-        <a href="/" className="py-4">
+        <Link href="/" className="py-4">
           ГЛАВНАЯ
-        </a>
+        </Link>
         <div className="relative">
           <button
             onClick={() => setIsArticlesOpen(!isArticlesOpen)}
             className="flex gap-4 py-4 relative z-10 px-4"
           >
             <p>СТАТЬИ</p>
-            <img src="Polygon.svg" alt="polygon" />
+            <Image
+              src={'/Polygon.svg'}
+              alt="polygon"
+              width={10}
+              height={10}
+            />
           </button>
 
           {isArticlesOpen && (
@@ -26,26 +39,33 @@ export default function Header() {
           )}
 
           {isArticlesOpen && (
-            <div className="absolute flex flex-col bg-[#3137C9] rounded-b-md shadow-lg  min-w-45 py-4 px-4 text-xs gap-2">
-              <a href="#">Создание сайтов</a>
-              <a href="#">Интернет маркетинг</a>
-              <a href="#">Продвижение видео</a>
+            <div className="absolute flex flex-col bg-[#3137C9] rounded-b-md shadow-lg min-w-45 py-4 px-4 text-xs gap-2 z-20">
+              {THEMES.map((theme) => (
+                <Link 
+                  key={theme}
+                  href={`/posts?theme=${encodeURIComponent(theme)}`}
+                  className="hover:text-white transition-colors"
+                  onClick={() => setIsArticlesOpen(false)}
+                >
+                  {theme.charAt(0).toUpperCase() + theme.slice(1)}
+                </Link>
+              ))}
             </div>
           )}
         </div>
 
-        <a href="#" className="py-4">
+        <Link href="/works" className="py-4">
           ОБО МНЕ
-        </a>
-        <a href="#" className="py-4">
+        </Link>
+        <Link href="/" className="py-4">
           РЕКЛАМА
-        </a>
+        </Link>
       </div>
 
       <div className="flex items-center gap-8">
-        <a href="#" className="py-4">
+        <Link href="/profile" className="py-4">
           ПРОФИЛЬ
-        </a>
+        </Link>
         <Input
           placeholder="Поиск по блогу"
           className="bg-[#202020] py-6 border-none rounded-none w-60"
